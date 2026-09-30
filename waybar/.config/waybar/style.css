@@ -1,0 +1,319 @@
+/*
+ * Catppuccin Mocha
+ * base #1e1e2e  mantle #181825  crust #11111b
+ * surface0 #313244  surface1 #45475a  overlay0 #6c7086
+ * text #cdd6f4  subtext0 #a6adc8
+ * red #f38ba8  peach #fab387  yellow #f9e2af  green #a6e3a1
+ * teal #94e2d5  mauve #cba6f7  lavender #b4befe
+ */
+
+* {
+    font-family: 'Noto Sans Mono', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace;
+    font-size: 14px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+/* Bar nền trong suốt, các module là pill nổi */
+window#waybar {
+    background-color: transparent;
+    color: #cdd6f4;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+button {
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    box-shadow: none;
+}
+
+/* Pill chung */
+#workspaces,
+#clock,
+#custom-cpu,
+#custom-memory,
+#custom-temperature,
+#network,
+#custom-dnd,
+#pulseaudio,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad {
+    padding: 0 10px;
+    margin: 2px 2px;
+    background-color: rgba(30, 30, 46, 0.7);
+    color: #cdd6f4;
+    border-radius: 10px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#window {
+    margin: 0 4px;
+}
+
+/* Workspaces */
+#workspaces {
+    padding: 0 3px;
+}
+
+#workspaces button {
+    padding: 0 6px;
+    margin: 3px 1px;
+    background-color: transparent;
+    color: #a6adc8;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#workspaces button:hover {
+    background-color: rgba(205, 214, 244, 0.12);
+    color: #cdd6f4;
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+    background-color: #b4befe;
+    color: #1e1e2e;
+}
+
+#workspaces button.urgent {
+    background-color: #f38ba8;
+    color: #1e1e2e;
+}
+
+#mode {
+    color: #f9e2af;
+}
+
+#clock {
+    color: #cdd6f4;
+}
+
+/* CPU */
+#custom-cpu {
+    color: #a6e3a1;
+}
+
+#custom-cpu.warning {
+    background-color: #fab387;
+    color: #1e1e2e;
+}
+
+#custom-cpu.critical {
+    background-color: #f38ba8;
+    color: #1e1e2e;
+}
+
+/* Memory */
+#custom-memory {
+    color: #cba6f7;
+}
+
+#custom-memory.warning {
+    background-color: #fab387;
+    color: #1e1e2e;
+}
+
+#custom-memory.critical {
+    background-color: #f38ba8;
+    color: #1e1e2e;
+}
+
+/* Temperature */
+#custom-temperature {
+    color: #fab387;
+}
+
+#custom-temperature.warning {
+    background-color: #fab387;
+    color: #1e1e2e;
+}
+
+#custom-temperature.critical {
+    background-color: #f38ba8;
+    color: #1e1e2e;
+}
+
+/* Audio */
+#pulseaudio {
+    color: #f9e2af;
+}
+
+#pulseaudio:hover {
+    background-color: #313244;
+}
+
+#pulseaudio.muted {
+    color: #6c7086;
+}
+
+/* Tray */
+#tray {
+    color: #cdd6f4;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #f38ba8;
+}
+
+/* Idle inhibitor */
+#idle_inhibitor {
+    color: #a6adc8;
+}
+
+#idle_inhibitor.activated {
+    background-color: #cdd6f4;
+    color: #1e1e2e;
+}
+
+#language {
+    background: #94e2d5;
+    color: #1e1e2e;
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#scratchpad.empty {
+    background-color: transparent;
+}
+
+label:focus {
+    background-color: #11111b;
+}
+
+/* Tooltip & menu */
+tooltip {
+    background-color: rgba(30, 30, 46, 0.95);
+    border: 1px solid #45475a;
+    border-radius: 10px;
+}
+
+tooltip label {
+    color: #cdd6f4;
+    padding: 2px 4px;
+}
+
+menu {
+    background-color: #1e1e2e;
+    color: #cdd6f4;
+    border-radius: 10px;
+    padding: 4px;
+}
+
+menuitem {
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+menuitem:hover {
+    background-color: #f38ba8;
+    color: #1e1e2e;
+}
+
+/* Hardware drawer: một viên thuốc, icon chip làm nút mở (hover) */
+#hardware {
+    margin: 2px 2px;
+    background-color: rgba(30, 30, 46, 0.7);
+    border-radius: 10px;
+    transition: background-color 0.2s ease;
+}
+
+#hardware #custom-hwicon,
+#hardware #custom-cpu,
+#hardware #custom-memory,
+#hardware #custom-temperature {
+    margin: 0;
+    padding: 0 10px;
+    background-color: transparent;
+    border-radius: 0;
+}
+
+#hardware #custom-hwicon {
+    color: #b4befe;
+}
+
+#hardware:hover #custom-hwicon {
+    color: #cba6f7;
+}
+
+/* Đường ngăn giữa các module (chỉ thấy khi drawer mở) */
+#hardware #custom-cpu,
+#hardware #custom-memory,
+#hardware #custom-temperature {
+    border-right: 1px solid #45475a;
+}
+
+/* Warning/critical: đánh dấu bằng chip nhỏ bên trong viên thuốc */
+#hardware #custom-cpu.warning,
+#hardware #custom-memory.warning,
+#hardware #custom-temperature.warning {
+    margin: 2px 1px;
+    background-color: #fab387;
+    color: #1e1e2e;
+    border-radius: 8px;
+}
+
+#hardware #custom-cpu.critical,
+#hardware #custom-memory.critical,
+#hardware #custom-temperature.critical {
+    margin: 2px 1px;
+    background-color: #f38ba8;
+    color: #1e1e2e;
+    border-radius: 8px;
+}
+
+/* Network */
+#network {
+    color: #94e2d5;
+}
+
+#network.disconnected {
+    color: #f38ba8;
+}
+
+/* Critical: nhấp nháy nhẹ */
+@keyframes blink-critical {
+    to {
+        background-color: #45475a;
+        color: #f38ba8;
+    }
+}
+
+#custom-cpu.critical,
+#custom-memory.critical,
+#custom-temperature.critical,
+#hardware #custom-cpu.critical,
+#hardware #custom-memory.critical,
+#hardware #custom-temperature.critical {
+    animation-name: blink-critical;
+    animation-duration: 1s;
+    animation-timing-function: steps(8);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* Do not disturb */
+#custom-dnd {
+    color: #a6adc8;
+}
+
+#custom-dnd.dnd {
+    color: #f38ba8;
+}

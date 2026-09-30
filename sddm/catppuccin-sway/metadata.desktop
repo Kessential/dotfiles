@@ -1,0 +1,17 @@
+[SddmGreeterTheme]
+Name=Catppuccin Sway
+Description=Catppuccin Mocha login theme (based on Fedora Sway SIG theme)
+Author=Fedora Sway SIG
+Copyright=(c) 2024, Fedora Sway SIG
+License=CC-BY-SA-3.0 AND MIT
+Type=sddm-theme
+Version=0.1
+Website=https://gitlab.com/fedora/sigs/sway/sway-config-fedora
+Screenshot=
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=translations
+Email=sway@lists.fedoraproject.org
+Theme-Id=catppuccin-sway
+Theme-API=2.0
+QtVersion=6

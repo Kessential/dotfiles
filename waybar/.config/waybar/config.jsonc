@@ -1,0 +1,147 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 32, // Waybar height (to be removed for auto height)
+    "margin-top": 2,
+    "margin-left": 2,
+    "margin-right": 2,
+    // "width": 1280, // Waybar width
+    "spacing": 2, // Gaps between modules (2px)
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode",
+        "sway/scratchpad"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "idle_inhibitor",
+        "pulseaudio",
+        "network",
+        "group/hardware",
+        "custom/dnd",
+        "tray"
+    ],
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name}"
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10,
+        // "icons": {
+        //   "blueman": "bluetooth",
+        // }
+    },
+    "clock": {
+        "format": " {:%H:%M}",
+        "format-alt": "\uf073 {:%a %d/%m/%Y}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        },
+        "calendar": {
+            "mode": "month",
+            "format": {
+                "today": "<span background='#f38ba8' color='#1e1e2e'><b>{}</b></span>"
+            }
+        }
+    },
+    "group/hardware": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300,
+            "transition-left-to-right": false,
+            "children-class": "hardware-child"
+        },
+        "modules": [
+            "custom/hwicon",
+            "custom/cpu",
+            "custom/memory",
+            "custom/temperature"
+        ]
+    },
+    "custom/hwicon": {
+        "format": "\uf2db",
+        "tooltip": false
+    },
+    "custom/cpu": {
+        "exec": "$HOME/.config/waybar/scripts/cpu.py",
+        "return-type": "json",
+        "interval": 2,
+        "tooltip": true
+    },
+    "custom/memory": {
+        "exec": "$HOME/.config/waybar/scripts/memory.py",
+        "return-type": "json",
+        "interval": 3,
+        "tooltip": true
+    },
+    "custom/temperature": {
+        "exec": "$HOME/.config/waybar/scripts/temperature.py",
+        "return-type": "json",
+        "interval": 5,
+        "tooltip": true
+    },
+    "network": {
+        "interface": "enp3s0",
+        "interval": 3,
+        "format-ethernet": "\uf796",
+        "format-linked": "\uf796",
+        "format-disconnected": "\uf071",
+        "tooltip-format-ethernet": "{ifname}\n{ipaddr}/{cidr}\n\u2193 {bandwidthDownBytes}  \u2191 {bandwidthUpBytes}",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click": "nm-connection-editor"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-bluetooth-muted": " {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "scroll-step": 5,
+        "tooltip-format": "{desc}\nVolume: {volume}%",
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    },
+    "custom/dnd": {
+        "exec": "$HOME/.config/waybar/scripts/dnd.py",
+        "return-type": "json",
+        "interval": 5,
+        "signal": 8,
+        "on-click": "makoctl mode -t do-not-disturb && pkill -RTMIN+8 waybar",
+        "tooltip": true
+    },
+}

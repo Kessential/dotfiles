@@ -1,0 +1,38 @@
+# mako config
+# Palette: Catppuccin Mocha, matching rofi and swaylock.
+
+font=Noto Sans Mono 11
+sort=-time
+max-history=100
+default-timeout=6000
+group-by=app-name
+max-visible=5
+layer=overlay
+anchor=top-right
+
+width=350
+height=110
+padding=12
+margin=10
+border-size=2
+border-radius=10
+
+background-color=#1e1e2eF2
+text-color=#cdd6f4FF
+border-color=#b4befeFF
+progress-color=over #45475aFF
+
+icons=1
+max-icon-size=48
+icon-location=left
+
+[urgency=low]
+border-color=#45475aFF
+default-timeout=4000
+
+[urgency=critical]
+border-color=#f38ba8FF
+default-timeout=0
+
+[mode=do-not-disturb]
+invisible=1

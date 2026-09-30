@@ -1,0 +1,101 @@
+/* Catppuccin Mocha */
+* {
+    bg:       #1e1e2e;
+    bg-alt:   #313244;
+    fg:       #cdd6f4;
+    fg-dim:   #a6adc8;
+    accent:   #b4befe;
+    urgent:   #f38ba8;
+    active:   #a6e3a1;
+
+    background-color: transparent;
+    text-color:       @fg;
+    margin:  0;
+    padding: 0;
+    spacing: 0;
+}
+
+window {
+    location:         center;
+    width:            600px;
+    background-color: @bg;
+    border:           2px;
+    border-color:     @accent;
+    border-radius:    12px;
+}
+
+mainbox {
+    padding:  12px;
+    spacing:  8px;
+    children: [ inputbar, message, listview ];
+}
+
+inputbar {
+    background-color: @bg-alt;
+    border-radius:    8px;
+    padding:          8px 12px;
+    spacing:          8px;
+    children:         [ prompt, entry ];
+}
+
+prompt {
+    text-color: @accent;
+}
+
+entry {
+    placeholder:       "Search...";
+    placeholder-color: @fg-dim;
+}
+
+message {
+    background-color: @bg-alt;
+    border-radius:    8px;
+    padding:          8px 12px;
+}
+
+listview {
+    lines:        8;
+    columns:      1;
+    fixed-height: true;
+    scrollbar:    false;
+    spacing:      4px;
+}
+
+element {
+    padding:       8px 12px;
+    border-radius: 8px;
+}
+
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+    vertical-align:   0.5;
+}
+
+element-icon {
+    background-color: inherit;
+    size:             24px;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color: transparent;
+    text-color:       @fg;
+}
+
+element normal.urgent,
+element alternate.urgent {
+    text-color: @urgent;
+}
+
+element normal.active,
+element alternate.active {
+    text-color: @active;
+}
+
+element selected.normal,
+element selected.active,
+element selected.urgent {
+    background-color: @bg-alt;
+    text-color:       @accent;
+}

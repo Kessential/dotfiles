@@ -1,0 +1,38 @@
+configuration {
+    modi: "combi,drun,window,filebrowser";
+    show-icons: true;
+    icon-theme: "Papirus";
+    drun-display-format: "{name}";
+    display-drun: "Apps";
+    display-window: "Windows";
+    display-combi: "Search";
+    disable-history: false;
+    sort: true;
+    sorting-method: "fzf";
+    matching: "fuzzy";
+    combi-modes: "window,drun";
+    window-format: "{c:26} {t}";
+
+    timeout {
+        action: "kb-cancel";
+        delay:  0;
+    }
+    filebrowser {
+        directories-first: true;
+        sorting-method:    "name";
+    }
+}
+//@theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
+
+//@theme "/usr/share/rofi/themes/gruvbox-dark-soft.rasi"
+
+//@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
+
+@theme "~/.config/rofi/catppuccin-mocha.rasi"
+
+element {
+    spacing: 10px;
+}
+element-icon {
+    size: 24px;
+}
