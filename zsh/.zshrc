@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="alanpeabody"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -70,7 +70,12 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git eza)
+plugins=(eza foot zoxide zsh-autosuggestions zsh-syntax-highlighting)
+
+# Catppuccin Mocha: phải đặt trước khi plugin syntax-highlighting được nạp
+source $ZSH/custom/catppuccin_mocha-zsh-syntax-highlighting.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6c7086"
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -102,9 +107,46 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH=$PATH:/home/khanh/.local/bin
-export PATH=~/.npm-global/bin:$PATH
+export MANROFFOPT="-c"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export PAGER="bat"
+alias cat='bat -pp'
 
-eval "$(zoxide init zsh)"
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
+export FZF_DEFAULT_OPTS="
+  --height 40% --layout=reverse --border
+  --preview 'bat --color=always --style=numbers --line-range=:500 {}'
+  --preview-window right:60%
+  --bind 'ctrl-/:toggle-preview'
+  --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8
+  --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc
+  --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8
+  --color=selected-bg:#45475a,border:#6c7086,label:#cdd6f4
+"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude node_modules --exclude build'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git --exclude node_modules --exclude build'
+
+eval "$(fzf --zsh)"
+
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
+fe() {   # fuzzy-open file trong nvim
+  local file
+  file=$(fd --type f | fzf --preview 'bat --color=always --style=numbers {}')
+  [ -n "$file" ] && nvim "$file"
+}
+
+rgf() {  # search toàn project, nhảy thẳng vào dòng match trong nvim
+  local file line
+  IFS=: read -r file line <<< "$(rg --line-number --no-heading "$1" | \
+    fzf --delimiter : --preview 'bat --color=always --highlight-line {2} {1}' \
+        --preview-window '+{2}-5' | cut -d: -f1,2)"
+  [ -n "$file" ] && nvim "+$line" "$file"
+}
+
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export PATH="$HOME/.local/bin:$PATH"
