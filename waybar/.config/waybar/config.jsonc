@@ -143,5 +143,5 @@
         "signal": 8,
         "on-click": "makoctl mode -t do-not-disturb && pkill -RTMIN+8 waybar",
         "tooltip": true
-    },
+    }
 }

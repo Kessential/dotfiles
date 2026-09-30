@@ -261,7 +261,5 @@ bindsym $mod+period exec rofimoji --use-icons
 ### Idle inhibitors
 #
 # Don't lock/suspend while watching fullscreen video
-for_window [app_id="firefox"] inhibit_idle fullscreen
-for_window [class="firefox"] inhibit_idle fullscreen
 for_window [app_id="vlc"] inhibit_idle fullscreen
 for_window [class="vlc"] inhibit_idle fullscreen

@@ -182,14 +182,6 @@ button:hover {
     color: #1e1e2e;
 }
 
-#language {
-    background: #94e2d5;
-    color: #1e1e2e;
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
 #scratchpad.empty {
     background-color: transparent;
 }
