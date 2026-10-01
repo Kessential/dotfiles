@@ -7,7 +7,7 @@ font-size=24
 # Same wallpaper swaybg uses on the desktop; both link libglycin for
 # jxl decoding so this renders fine. color= is the fallback for any
 # output the image doesn't cover.
-image=/home/khanh/Pictures/wallpapers/F42-01-night.jpg
+image=~/Pictures/wallpapers/F42-01-night.jpg
 scaling=fill
 color=1e1e2e
 

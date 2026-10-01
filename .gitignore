@@ -1,2 +1,5 @@
 # tpm cài plugin tmux vào đây (chạy bootstrap.sh hoặc prefix + I)
 tmux/.tmux/plugins/
+
+# bootstrap.sh clone plugin zsh vào đây
+zsh/.oh-my-zsh/custom/plugins/
