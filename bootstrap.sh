@@ -13,6 +13,12 @@ clone() { [ -d "$2" ] || git clone --depth 1 "$1" "$2"; }
 clone https://github.com/zsh-users/zsh-syntax-highlighting "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
 clone https://github.com/zsh-users/zsh-autosuggestions     "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
 
+# --- tmux: tpm rồi cài các plugin khai báo trong .tmux.conf (cần stow gói tmux trước)
+clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+if command -v tmux >/dev/null && [ -x "$HOME/.tmux/plugins/tpm/bin/install_plugins" ]; then
+    "$HOME/.tmux/plugins/tpm/bin/install_plugins" || true
+fi
+
 # --- Gói trong repo Fedora: chỉ in lệnh còn thiếu, không tự chạy sudo
 want=(wf-recorder mpv zathura zathura-pdf-mupdf gh atuin duf procs du-dust imv)
 missing=()
