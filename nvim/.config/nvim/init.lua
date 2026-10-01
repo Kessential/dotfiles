@@ -692,9 +692,18 @@ do
   --  See `:help lsp-config` for information about keys and how to configure
   ---@type table<string, vim.lsp.Config>
   local servers = {
-    clangd = {},
+    clangd = {
+      cmd = { 'clangd', '--background-index', '--clang-tidy', '--completion-style=detailed' },
+    },
     -- gopls = {},
     pyright = {},
+    ruff = { -- lint + organize imports; hover để pyright lo
+      on_attach = function(client) client.server_capabilities.hoverProvider = false end,
+    },
+    bashls = {}, -- sh/bash scripts (dùng shellcheck nếu có)
+    jsonls = {}, -- json/jsonc (vd: waybar/config.jsonc)
+    yamlls = {},
+    taplo = {}, -- toml (cũng là formatter cho toml)
     -- rust_analyzer = {},
     --
     -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -760,6 +769,9 @@ do
   local ensure_installed = vim.tbl_keys(servers or {})
   vim.list_extend(ensure_installed, {
     -- You can add other tools here that you want Mason to install
+    'shfmt',
+    'shellcheck',
+    'prettier',
   })
 
   require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -797,6 +809,14 @@ do
     -- You can also specify external formatters in here.
     formatters_by_ft = {
       -- rust = { 'rustfmt' },
+      lua = { 'stylua' },
+      python = { 'ruff_organize_imports', 'ruff_format' },
+      sh = { 'shfmt' },
+      bash = { 'shfmt' },
+      json = { 'prettier' },
+      jsonc = { 'prettier' },
+      yaml = { 'prettier' },
+      css = { 'prettier' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --
@@ -871,7 +891,7 @@ do
     },
 
     sources = {
-      default = { 'lsp', 'path', 'snippets' },
+      default = { 'lsp', 'path', 'snippets', 'buffer' },
     },
 
     snippets = { preset = 'luasnip' },
