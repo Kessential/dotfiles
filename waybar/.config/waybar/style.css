@@ -64,12 +64,12 @@ button:hover {
 
 /* Workspaces */
 #workspaces {
-    padding: 0 3px;
+    padding: 0 4px;
 }
 
 #workspaces button {
     padding: 0 6px;
-    margin: 3px 1px;
+    margin: 3px 2px;
     background-color: transparent;
     color: #a6adc8;
     border-radius: 8px;
