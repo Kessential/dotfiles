@@ -1,21 +1,19 @@
 #!/usr/bin/env bash
 # Các bước cài đặt mà stow không làm được. Chạy sau khi đã stow các gói (xem README.md).
 #   ./bootstrap.sh
-# Cần sẵn: git, curl, jq, và unzip hoặc python3.
+# Cần sẵn: git.
 # Riêng gói zsh phải stow bằng `stow --no-folding zsh` để ~/.oh-my-zsh là thư mục thật.
 set -euo pipefail
 
 ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
-BIN="${BIN:-$HOME/.local/bin}"
-mkdir -p "$BIN"
 
 # --- Gói trong repo Fedora: chỉ in lệnh còn thiếu, không tự chạy sudo
 want=(
-    git curl jq unzip stow zsh tmux neovim make gcc nodejs npm  # nodejs/npm: LSP bash/json/yaml của nvim
+    git stow zsh tmux neovim make gcc nodejs npm  # nodejs/npm: LSP bash/json/yaml của nvim
     fzf fd-find bat eza ripgrep zoxide btop                     # công cụ dòng lệnh mà .zshrc dùng
     sway swaylock swayidle waybar foot mako rofi grimshot cliphist wl-clipboard
     fcitx5 fcitx5-gtk fcitx5-qt papirus-icon-theme
-    wf-recorder mpv zathura zathura-pdf-mupdf gh duf procs du-dust imv
+    wf-recorder mpv zathura zathura-pdf-mupdf gh duf procs du-dust imv yazi golang-github-jesseduffield-lazygit  # lazygit: repo terra
 )
 missing=()
 # --whatprovides: nhận cả gói ảo (vd: nodejs do nodejs22 cung cấp)
@@ -48,48 +46,8 @@ if command -v tmux >/dev/null && [ -x "$HOME/.tmux/plugins/tpm/bin/install_plugi
     "$HOME/.tmux/plugins/tpm/bin/install_plugins" || true
 fi
 
-# --- Công cụ không có trong repo Fedora: tải bản release của GitHub.
-# Kiểm tra sha256 theo trường "digest" mà GitHub API trả về cho từng asset.
-install_release() {
-    local repo=$1 pattern=$2; shift 2
-    local bins=("$@")
-    if [ -x "$BIN/${bins[0]}" ]; then echo "bỏ qua ${bins[0]} (đã có)"; return 0; fi
-
-    local tmp json name url digest got
-    tmp=$(mktemp -d)
-    json=$(curl -fsSL "https://api.github.com/repos/$repo/releases/latest")
-    name=$(jq -r --arg re "$pattern" '[.assets[] | select(.name | test($re))][0].name // empty' <<<"$json")
-    [ -n "$name" ] || { echo "không tìm thấy asset cho $repo" >&2; rm -rf "$tmp"; return 1; }
-    url=$(jq -r --arg n "$name" '.assets[] | select(.name == $n) | .browser_download_url' <<<"$json")
-    digest=$(jq -r --arg n "$name" '.assets[] | select(.name == $n) | .digest // empty' <<<"$json")
-
-    curl -fsSL -o "$tmp/$name" "$url"
-    if [ -n "$digest" ]; then
-        got="sha256:$(sha256sum "$tmp/$name" | cut -d' ' -f1)"
-        [ "$got" = "$digest" ] || { echo "SAI checksum $name" >&2; rm -rf "$tmp"; return 1; }
-    else
-        echo "cảnh báo: $name không có digest để kiểm tra" >&2
-    fi
-
-    mkdir "$tmp/x"
-    case "$name" in
-        *.zip)    unzip -q "$tmp/$name" -d "$tmp/x" 2>/dev/null \
-                      || python3 -c "import sys,zipfile;zipfile.ZipFile(sys.argv[1]).extractall(sys.argv[2])" "$tmp/$name" "$tmp/x" ;;
-        *.tar.gz) tar xzf "$tmp/$name" -C "$tmp/x" ;;
-        *)        echo "định dạng lạ: $name" >&2; rm -rf "$tmp"; return 1 ;;
-    esac
-    for b in "${bins[@]}"; do
-        install -m 755 "$(find "$tmp/x" -type f -name "$b" | head -1)" "$BIN/$b"
-    done
-    rm -rf "$tmp"
-    echo "đã cài ${bins[*]} ($name)"
-}
-
-install_release sxyazi/yazi              '^yazi-x86_64-unknown-linux-gnu\.zip$'        yazi ya
-install_release jesseduffield/lazygit    '^lazygit_.*_linux_x86_64\.tar\.gz$'          lazygit
-
 # yazi: cài flavor theo yazi/.config/yazi/package.toml
-if [ -x "$BIN/ya" ]; then PATH="$BIN:$PATH" ya pkg install || true; fi
+command -v ya >/dev/null && { ya pkg install || true; }
 
 # --- Cache theme cho bat (theme nằm trong gói bat)
 command -v bat >/dev/null && bat cache --build

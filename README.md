@@ -50,6 +50,7 @@ hãy chuyển file cũ đi (`mv`) rồi stow lại. Xem trước bằng `stow -n
   Phiên bản plugin nvim được khoá trong `nvim/.config/nvim/nvim-pack-lock.json`.
 - **Ảnh nền** dùng đường dẫn `~/Pictures/wallpapers/...` trong `sway/config` và `swaylock/config`,
   nên gói `wallpapers` phải được stow.
+- **lazygit** nằm trong repo [Terra](https://terra.fyralabs.com/) (gói `golang-github-jesseduffield-lazygit`), cần bật repo này trước khi `dnf install`.
 - **Bộ gõ tiếng Việt:** máy hiện dùng `fcitx5-lotus`, chưa được `bootstrap.sh` cài; cài riêng theo hướng dẫn của dự án đó.
 - `sway/config.d/90-swayidle.conf` chỉ chứa comment, cố ý, để ghi đè file cùng tên của hệ thống.
 - Không đưa `~/.config/gh` vào repo: `hosts.yml` chứa token đăng nhập.
