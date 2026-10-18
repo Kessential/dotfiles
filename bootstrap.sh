@@ -87,7 +87,6 @@ install_release() {
 
 install_release sxyazi/yazi              '^yazi-x86_64-unknown-linux-gnu\.zip$'        yazi ya
 install_release jesseduffield/lazygit    '^lazygit_.*_linux_x86_64\.tar\.gz$'          lazygit
-install_release ClementTsang/bottom      '^bottom_x86_64-unknown-linux-gnu\.tar\.gz$'  btm
 
 # yazi: cài flavor theo yazi/.config/yazi/package.toml
 if [ -x "$BIN/ya" ]; then PATH="$BIN:$PATH" ya pkg install || true; fi

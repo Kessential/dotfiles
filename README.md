@@ -15,7 +15,7 @@ mkdir -p ~/.config ~/.local/share ~/.local/bin   # tạo trước để stow kh�
 
 # zsh và fcitx5 phải dùng --no-folding (xem "Lưu ý" bên dưới)
 stow --no-folding zsh fcitx5
-stow bat bottom btop eza foot gtk imv lazygit mako nvim ripgrep rofi \
+stow bat btop eza foot gtk imv lazygit mako nvim ripgrep rofi \
      sway swaylock tmux wallpapers waybar yazi zathura
 
 ./bootstrap.sh                        # sau khi đã stow
@@ -35,7 +35,7 @@ hãy chuyển file cũ đi (`mv`) rồi stow lại. Xem trước bằng `stow -n
 | `sway`, `swaylock`, `waybar`, `mako`, `rofi` | Desktop Sway: cửa sổ, khoá màn hình, thanh trạng thái, thông báo, launcher |
 | `foot`, `tmux`, `zsh` | Terminal, tmux (prefix là dấu `` ` ``), zsh + oh-my-zsh |
 | `nvim` | Neovim dựa trên kickstart.nvim, tuỳ chỉnh thêm trong `lua/custom/plugins/` |
-| `bat`, `btop`, `bottom`, `eza`, `lazygit`, `yazi`, `ripgrep`, `zathura`, `imv` | Công cụ dòng lệnh và trình xem |
+| `bat`, `btop`, `eza`, `lazygit`, `yazi`, `ripgrep`, `zathura`, `imv` | Công cụ dòng lệnh và trình xem |
 | `fcitx5`, `gtk`, `wallpapers` | Bộ gõ, GTK, ảnh nền |
 | `sddm` | Theme SDDM, **không** stow; cài bằng `sddm/install.sh` |
 
