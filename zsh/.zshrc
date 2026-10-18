@@ -157,5 +157,8 @@ y() {
   rm -f -- "$tmp"
 }
 
-# atuin: lịch sử shell (Ctrl-R); chỉ bật khi đã cài
-command -v atuin >/dev/null && eval "$(atuin init zsh --disable-up-arrow)"
+# lịch sử shell (Ctrl-R do fzf xử lý)
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=50000
+SAVEHIST=50000
+setopt SHARE_HISTORY HIST_IGNORE_ALL_DUPS HIST_IGNORE_SPACE HIST_REDUCE_BLANKS

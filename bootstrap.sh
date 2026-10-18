@@ -15,7 +15,7 @@ want=(
     fzf fd-find bat eza ripgrep zoxide btop                     # công cụ dòng lệnh mà .zshrc dùng
     sway swaylock swayidle waybar foot mako rofi grimshot cliphist wl-clipboard
     fcitx5 fcitx5-gtk fcitx5-qt papirus-icon-theme
-    wf-recorder mpv zathura zathura-pdf-mupdf gh atuin duf procs du-dust imv
+    wf-recorder mpv zathura zathura-pdf-mupdf gh duf procs du-dust imv
 )
 missing=()
 # --whatprovides: nhận cả gói ảo (vd: nodejs do nodejs22 cung cấp)
@@ -103,4 +103,4 @@ gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 systemctl --user enable --now ssh-agent.socket || true
 
 echo "Xong. Theme SDDM cài riêng bằng: sudo bash sddm/install.sh"
-echo "Nên chạy thêm: gh auth login ; atuin import auto"
+echo "Nên chạy thêm: gh auth login"

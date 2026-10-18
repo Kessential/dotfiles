@@ -22,7 +22,7 @@ stow bat bottom btop eza foot gtk imv lazygit mako nvim ripgrep rofi \
 sudo bash sddm/install.sh             # theme SDDM (không stow)
 ```
 
-Sau cùng: `gh auth login`, `atuin import auto`, mở `nvim` một lần để `vim.pack` và Mason cài plugin/LSP,
+Sau cùng: `gh auth login`, mở `nvim` một lần để `vim.pack` và Mason cài plugin/LSP,
 trong tmux nhấn `prefix + I` nếu plugin tmux chưa có.
 
 Nếu stow báo xung đột vì file đã tồn tại (ví dụ `~/.zshrc`, `~/.tmux.conf`, `~/.config/nvim`),
