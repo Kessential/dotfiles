@@ -14,7 +14,7 @@ def read_temp(hwmon_glob, filename="temp1_input"):
 CPU_HWMON = "/sys/devices/platform/coretemp.0/hwmon"
 GPU_HWMON = "/sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0/hwmon"
 
-ICON_LOW, ICON_MID, ICON_HIGH = "", "", ""
+ICON_LOW, ICON_MID, ICON_HIGH = "󱃃", "󰔏", "󱃂"
 
 cpu = read_temp(CPU_HWMON)
 gpu = read_temp(GPU_HWMON)

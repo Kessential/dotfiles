@@ -16,7 +16,7 @@ mkdir -p ~/.config ~/.local/share ~/.local/bin   # tạo trước để stow kh�
 # zsh và fcitx5 phải dùng --no-folding (xem "Lưu ý" bên dưới)
 stow --no-folding zsh fcitx5
 stow bat btop eza foot gtk imv lazygit mako nvim ripgrep rofi \
-     sway swaylock tmux wallpapers waybar yazi zathura
+     sway swaylock tmux waybar yazi zathura
 
 ./bootstrap.sh                        # sau khi đã stow
 sudo bash sddm/install.sh             # theme SDDM (không stow)
@@ -33,10 +33,10 @@ hãy chuyển file cũ đi (`mv`) rồi stow lại. Xem trước bằng `stow -n
 | Gói | Nội dung |
 |---|---|
 | `sway`, `swaylock`, `waybar`, `mako`, `rofi` | Desktop Sway: cửa sổ, khoá màn hình, thanh trạng thái, thông báo, launcher |
-| `foot`, `tmux`, `zsh` | Terminal, tmux (prefix là dấu `` ` ``), zsh + oh-my-zsh |
+| `foot`, `tmux`, `zsh` | Terminal, tmux (prefix là `Ctrl-a`), zsh + oh-my-zsh |
 | `nvim` | Neovim dựa trên kickstart.nvim, tuỳ chỉnh thêm trong `lua/custom/plugins/` |
 | `bat`, `btop`, `eza`, `lazygit`, `yazi`, `ripgrep`, `zathura`, `imv` | Công cụ dòng lệnh và trình xem |
-| `fcitx5`, `gtk`, `wallpapers` | Bộ gõ, GTK, ảnh nền |
+| `fcitx5`, `gtk` | Bộ gõ, GTK |
 | `sddm` | Theme SDDM, **không** stow; cài bằng `sddm/install.sh` |
 
 ## Lưu ý
@@ -48,9 +48,10 @@ hãy chuyển file cũ đi (`mv`) rồi stow lại. Xem trước bằng `stow -n
   do nvim cập nhật sẽ nằm ngay trong repo. Nhớ commit khi bạn nâng cấp plugin.
 - **Plugin không nằm trong repo.** Plugin zsh và tmux (tpm) do `bootstrap.sh` clone; plugin nvim do `vim.pack` cài.
   Phiên bản plugin nvim được khoá trong `nvim/.config/nvim/nvim-pack-lock.json`.
-- **Ảnh nền** dùng đường dẫn `~/Pictures/wallpapers/...` trong `sway/config` và `swaylock/config`,
-  nên gói `wallpapers` phải được stow.
-- **lazygit** nằm trong repo [Terra](https://terra.fyralabs.com/) (gói `golang-github-jesseduffield-lazygit`), cần bật repo này trước khi `dnf install`.
+- **Ảnh nền** dùng `/usr/share/backgrounds/default-dark.jxl` của Fedora (sway, swaylock, SDDM), không lưu trong repo.
+  Đây là symlink tự trỏ sang ảnh của bản Fedora mới khi nâng cấp.
+- **lazygit và Nerd Font** nằm trong repo [Terra](https://terra.fyralabs.com/) (gói `golang-github-jesseduffield-lazygit`,
+  `jetbrainsmono-nerd-fonts` cho foot, `noto-nerd-fonts` cho waybar), cần bật repo này trước khi `dnf install`.
 - **Bộ gõ tiếng Việt:** máy hiện dùng `fcitx5-lotus`, chưa được `bootstrap.sh` cài; cài riêng theo hướng dẫn của dự án đó.
 - `sway/config.d/90-swayidle.conf` chỉ chứa comment, cố ý, để ghi đè file cùng tên của hệ thống.
 - Không đưa `~/.config/gh` vào repo: `hosts.yml` chứa token đăng nhập.

@@ -91,7 +91,7 @@
     "custom/cpu": {
         "exec": "$HOME/.config/waybar/scripts/cpu.py",
         "return-type": "json",
-        "interval": 2,
+        "interval": 3,
         "tooltip": true
     },
     "custom/memory": {
@@ -109,8 +109,8 @@
     "network": {
         "interface": "enp3s0",
         "interval": 3,
-        "format-ethernet": "\uf796",
-        "format-linked": "\uf796",
+        "format-ethernet": "󰈀",
+        "format-linked": "󰈀",
         "format-disconnected": "\uf071",
         "tooltip-format-ethernet": "{ifname}\n{ipaddr}/{cidr}\n\u2193 {bandwidthDownBytes}  \u2191 {bandwidthUpBytes}",
         "tooltip-format-disconnected": "Disconnected",
@@ -120,12 +120,12 @@
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}",
-        "format-bluetooth-muted": " {icon}",
-        "format-muted": "",
+        "format-bluetooth-muted": "󰖁 {icon}",
+        "format-muted": "󰖁",
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
+            "hands-free": "",
+            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
