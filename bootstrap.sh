@@ -13,7 +13,8 @@ want=(
     fzf fd-find bat eza ripgrep zoxide btop                     # công cụ dòng lệnh mà .zshrc dùng
     sway swaylock swayidle waybar foot mako rofi grimshot cliphist wl-clipboard
     fcitx5 fcitx5-gtk fcitx5-qt papirus-icon-theme
-    wf-recorder mpv zathura zathura-pdf-mupdf gh duf procs du-dust imv yazi golang-github-jesseduffield-lazygit  # lazygit: repo terra
+    wf-recorder zathura zathura-pdf-mupdf gh imv yazi golang-github-jesseduffield-lazygit  # lazygit: repo terra
+    fontawesome-fonts-all jetbrainsmono-nerd-fonts noto-nerd-fonts  # nerd fonts: repo terra (foot, waybar)
 )
 missing=()
 # --whatprovides: nhận cả gói ảo (vd: nodejs do nodejs22 cung cấp)
