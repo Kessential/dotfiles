@@ -72,8 +72,8 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(eza foot zoxide zsh-autosuggestions zsh-syntax-highlighting)
 
-# Catppuccin Mocha: phải đặt trước khi plugin syntax-highlighting được nạp
-source $ZSH/custom/catppuccin_mocha-zsh-syntax-highlighting.zsh
+# Tokyo Night: phải đặt trước khi plugin syntax-highlighting được nạp
+source $ZSH/custom/tokyonight_night-zsh-syntax-highlighting.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6c7086"
 
 source $ZSH/oh-my-zsh.sh
@@ -117,10 +117,10 @@ export FZF_DEFAULT_OPTS="
   --preview 'bat --color=always --style=numbers --line-range=:500 {}'
   --preview-window right:60%
   --bind 'ctrl-/:toggle-preview'
-  --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8
-  --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc
-  --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8
-  --color=selected-bg:#45475a,border:#6c7086,label:#cdd6f4
+  --color=bg+:#283457,bg:#16161e,gutter:#16161e,spinner:#ff007c
+  --color=fg:#c0caf5,fg+:#c0caf5,hl:#2ac3de,hl+:#2ac3de,header:#ff9e64
+  --color=info:#545c7e,pointer:#ff007c,marker:#ff007c,prompt:#2ac3de
+  --color=selected-bg:#3b4261,border:#27a1b9,scrollbar:#27a1b9,separator:#ff9e64,label:#c0caf5
 "
 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude node_modules --exclude build'
@@ -162,3 +162,12 @@ HISTFILE="$HOME/.zsh_history"
 HISTSIZE=50000
 SAVEHIST=50000
 setopt SHARE_HISTORY HIST_IGNORE_ALL_DUPS HIST_IGNORE_SPACE HIST_REDUCE_BLANKS
+
+# less/man — màu Tokyo Night
+export LESS_TERMCAP_md=$'\e[1;38;2;122;162;247m'   # tiêu đề: blue
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[4;38;2;187;154;247m'   # gạch chân: magenta
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[38;2;22;22;30;48;2;224;175;104m'  # thanh trạng thái/tìm kiếm: yellow
+export LESS_TERMCAP_se=$'\e[0m'
+export GROFF_NO_SGR=1

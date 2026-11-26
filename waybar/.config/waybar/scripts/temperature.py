@@ -49,7 +49,7 @@ elif cpu_warning or gpu_warning:
 else:
     cls = "normal"
 
-text = f"{main:.0f}°C {icon}" if main is not None else "N/A"
+text = f"<span color='#ff9e64'>{icon}</span> {main:.0f}°C" if main is not None else "N/A"
 
 print(json.dumps({
     "text": text,

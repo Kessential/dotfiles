@@ -1,0 +1,7 @@
+/* Sửa cho theme Tokyonight-Dark (bản black):
+ * dòng được chọn trong danh sách dạng cây bị nền trắng, đổi sang màu chọn của Tokyo Night. */
+treeview.view:selected,
+treeview.view:selected:focus {
+  color: #c0caf5;
+  background-color: #283457;
+}

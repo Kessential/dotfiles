@@ -42,16 +42,16 @@ Rectangle {
         target: sddm
 
         function onLoginSucceeded() {
-            errorMessage.color = "#89b4fa"
+            errorMessage.color = "#7aa2f7"
             errorMessage.text = textConstants.loginSucceeded
         }
         function onLoginFailed() {
             password.text = ""
-            errorMessage.color = "#f38ba8"
+            errorMessage.color = "#f7768e"
             errorMessage.text = textConstants.loginFailed
         }
         function onInformationMessage(message) {
-            errorMessage.color = "#f38ba8"
+            errorMessage.color = "#f7768e"
             errorMessage.text = message
         }
     }
@@ -89,7 +89,7 @@ Rectangle {
 
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
-                color: "#cdd6f4"
+                color: "#c0caf5"
                 font.family: "Noto Sans Mono"
                 font.pointSize: 72
                 text: Qt.formatTime(clock.dateTime, "hh:mm")
@@ -97,7 +97,7 @@ Rectangle {
 
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
-                color: "#a6adc8"
+                color: "#a9b1d6"
                 font.pointSize: 24
                 text: Qt.formatDate(clock.dateTime, "dd/MM/yyyy")
             }
@@ -109,10 +109,10 @@ Rectangle {
             width: Math.max(320, mainColumn.implicitWidth + 50)
             height: Math.max(320, mainColumn.implicitHeight + 50)
 
-            color: "#e61e1e2e"
+            color: "#e61a1b26"
             radius: 14
             border.width: 2
-            border.color: "#b4befe"
+            border.color: "#7aa2f7"
 
             Column {
                 id: mainColumn
@@ -120,7 +120,7 @@ Rectangle {
                 spacing: 12
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
-                    color: "#cdd6f4"
+                    color: "#c0caf5"
                     verticalAlignment: Text.AlignVCenter
                     height: text.implicitHeight
                     width: parent.width
@@ -136,7 +136,7 @@ Rectangle {
                     spacing: 4
                     Text {
                         id: lblName
-                        color: "#a6adc8"
+                        color: "#a9b1d6"
                         width: parent.width
                         text: textConstants.userName
                         font.bold: true
@@ -145,11 +145,11 @@ Rectangle {
 
                     TextBox {
                         id: name
-                        color: "#313244"
-                        borderColor: "#45475a"
-                        focusColor: "#b4befe"
-                        hoverColor: "#89b4fa"
-                        textColor: "#cdd6f4"
+                        color: "#292e42"
+                        borderColor: "#3b4261"
+                        focusColor: "#7aa2f7"
+                        hoverColor: "#7aa2f7"
+                        textColor: "#c0caf5"
                         radius: 8
                         width: parent.width; height: 30
                         text: userModel.lastUser
@@ -171,7 +171,7 @@ Rectangle {
                     spacing : 4
                     Text {
                         id: lblPassword
-                        color: "#a6adc8"
+                        color: "#a9b1d6"
                         width: parent.width
                         text: textConstants.password
                         font.bold: true
@@ -180,11 +180,11 @@ Rectangle {
 
                     PasswordBox {
                         id: password
-                        color: "#313244"
-                        borderColor: "#45475a"
-                        focusColor: "#b4befe"
-                        hoverColor: "#89b4fa"
-                        textColor: "#cdd6f4"
+                        color: "#292e42"
+                        borderColor: "#3b4261"
+                        focusColor: "#7aa2f7"
+                        hoverColor: "#7aa2f7"
+                        textColor: "#c0caf5"
                         radius: 8
                         width: parent.width; height: 30
                         font.pixelSize: 14
@@ -213,7 +213,7 @@ Rectangle {
 
                         Text {
                             id: lblSession
-                            color: "#a6adc8"
+                            color: "#a9b1d6"
                             width: parent.width
                             text: textConstants.session
                             wrapMode: TextEdit.WordWrap
@@ -223,13 +223,13 @@ Rectangle {
 
                         ComboBox {
                             id: session
-                            color: "#313244"
-                            borderColor: "#45475a"
-                            focusColor: "#b4befe"
-                            hoverColor: "#89b4fa"
-                            menuColor: "#313244"
-                            textColor: "#cdd6f4"
-                            arrowColor: "#313244"
+                            color: "#292e42"
+                            borderColor: "#3b4261"
+                            focusColor: "#7aa2f7"
+                            hoverColor: "#7aa2f7"
+                            menuColor: "#292e42"
+                            textColor: "#c0caf5"
+                            arrowColor: "#292e42"
                             width: parent.width; height: 30
                             font.pixelSize: 14
 
@@ -252,7 +252,7 @@ Rectangle {
 
                         Text {
                             id: lblLayout
-                            color: "#a6adc8"
+                            color: "#a9b1d6"
                             width: parent.width
                             text: textConstants.layout
                             wrapMode: TextEdit.WordWrap
@@ -262,13 +262,13 @@ Rectangle {
 
                         LayoutBox {
                             id: layoutBox
-                            color: "#313244"
-                            borderColor: "#45475a"
-                            focusColor: "#b4befe"
-                            hoverColor: "#89b4fa"
-                            menuColor: "#313244"
-                            textColor: "#cdd6f4"
-                            arrowColor: "#313244"
+                            color: "#292e42"
+                            borderColor: "#3b4261"
+                            focusColor: "#7aa2f7"
+                            hoverColor: "#7aa2f7"
+                            menuColor: "#292e42"
+                            textColor: "#c0caf5"
+                            arrowColor: "#292e42"
                             width: parent.width; height: 30
                             font.pixelSize: 14
 
@@ -283,7 +283,7 @@ Rectangle {
                     width: parent.width
                     Text {
                         id: errorMessage
-                        color: "#a6adc8"
+                        color: "#a9b1d6"
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: textConstants.prompt
                         font.pixelSize: 10
@@ -298,10 +298,10 @@ Rectangle {
                                                     rebootButton.implicitWidth, 80) + 8
                     Button {
                         id: loginButton
-                        color: "#b4befe"
-                        textColor: "#1e1e2e"
-                        activeColor: "#cba6f7"
-                        pressedColor: "#89b4fa"
+                        color: "#7aa2f7"
+                        textColor: "#1a1b26"
+                        activeColor: "#bb9af7"
+                        pressedColor: "#7aa2f7"
                         radius: 8
                         text: textConstants.login
                         width: parent.btnWidth
@@ -313,10 +313,10 @@ Rectangle {
 
                     Button {
                         id: shutdownButton
-                        color: "#313244"
-                        textColor: "#cdd6f4"
-                        activeColor: "#45475a"
-                        pressedColor: "#585b70"
+                        color: "#292e42"
+                        textColor: "#c0caf5"
+                        activeColor: "#3b4261"
+                        pressedColor: "#414868"
                         radius: 8
                         text: textConstants.shutdown
                         width: parent.btnWidth
@@ -328,10 +328,10 @@ Rectangle {
 
                     Button {
                         id: rebootButton
-                        color: "#313244"
-                        textColor: "#cdd6f4"
-                        activeColor: "#45475a"
-                        pressedColor: "#585b70"
+                        color: "#292e42"
+                        textColor: "#c0caf5"
+                        activeColor: "#3b4261"
+                        pressedColor: "#414868"
                         radius: 8
                         text: textConstants.reboot
                         width: parent.btnWidth

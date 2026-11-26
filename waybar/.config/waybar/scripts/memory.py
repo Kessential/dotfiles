@@ -47,7 +47,7 @@ else:
     cls = "normal"
 
 print(json.dumps({
-    "text": f"{percentage}% ",
+    "text": f"<span color='#bb9af7'></span> {percentage}%",
     "tooltip": tooltip,
     "percentage": percentage,
     "class": cls,

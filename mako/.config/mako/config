@@ -1,5 +1,5 @@
 # mako config
-# Palette: Catppuccin Mocha, matching rofi and swaylock.
+# Palette: Tokyo Night (night), matching rofi and swaylock.
 
 font=Noto Sans Mono 11
 sort=-time
@@ -17,21 +17,21 @@ margin=10
 border-size=2
 border-radius=10
 
-background-color=#1e1e2eF2
-text-color=#cdd6f4FF
-border-color=#b4befeFF
-progress-color=over #45475aFF
+background-color=#1a1b26F2
+text-color=#c0caf5FF
+border-color=#bb9af7FF
+progress-color=over #3b4261FF
 
 icons=1
 max-icon-size=48
 icon-location=left
 
 [urgency=low]
-border-color=#45475aFF
+border-color=#3b4261FF
 default-timeout=4000
 
 [urgency=critical]
-border-color=#f38ba8FF
+border-color=#f7768eFF
 default-timeout=0
 
 [mode=do-not-disturb]

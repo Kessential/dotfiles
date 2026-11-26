@@ -1,6 +1,6 @@
 -- Module bổ sung của mini.nvim (mini.nvim đã được cài trong init.lua)
 
--- Tô màu ngay trên mã hex (#rrggbb), hữu ích cho waybar/rofi/theme Catppuccin
+-- Tô màu ngay trên mã hex (#rrggbb), hữu ích cho waybar/rofi/theme Tokyo Night
 local hipatterns = require('mini.hipatterns')
 hipatterns.setup({
   highlighters = {

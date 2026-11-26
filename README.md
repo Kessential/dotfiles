@@ -1,6 +1,6 @@
 # dotfiles
 
-Cấu hình Linux (Fedora + Sway, theme Catppuccin Mocha), quản lý bằng [GNU Stow](https://www.gnu.org/software/stow/).
+Cấu hình Linux (Fedora + Sway, theme Tokyo Night (night)), quản lý bằng [GNU Stow](https://www.gnu.org/software/stow/).
 Mỗi thư mục cấp một là một "gói" stow, bên trong giữ nguyên đường dẫn so với `$HOME`
 (ví dụ `sway/.config/sway/config` → `~/.config/sway/config`).
 
@@ -15,11 +15,11 @@ mkdir -p ~/.config ~/.local/share ~/.local/bin   # tạo trước để stow kh�
 
 # zsh và fcitx5 phải dùng --no-folding (xem "Lưu ý" bên dưới)
 stow --no-folding zsh fcitx5
-stow bat btop eza foot gtk imv lazygit mako nvim ripgrep rofi \
+stow bat btop delta eza foot gtk imv lazygit mako nvim qt ripgrep rofi \
      sway swaylock tmux waybar yazi zathura
 
 ./bootstrap.sh                        # sau khi đã stow
-sudo bash sddm/install.sh             # theme SDDM (không stow)
+sudo bash sddm/install.sh             # theme SDDM Tokyo Night (không stow)
 ```
 
 Sau cùng: `gh auth login`, mở `nvim` một lần để `vim.pack` và Mason cài plugin/LSP,
@@ -36,10 +36,26 @@ hãy chuyển file cũ đi (`mv`) rồi stow lại. Xem trước bằng `stow -n
 | `foot`, `tmux`, `zsh` | Terminal, tmux (prefix là `Ctrl-a`), zsh + oh-my-zsh |
 | `nvim` | Neovim dựa trên kickstart.nvim, tuỳ chỉnh thêm trong `lua/custom/plugins/` |
 | `bat`, `btop`, `eza`, `lazygit`, `yazi`, `ripgrep`, `zathura`, `imv` | Công cụ dòng lệnh và trình xem |
-| `fcitx5`, `gtk` | Bộ gõ, GTK |
+| `fcitx5`, `gtk`, `qt` | Bộ gõ, GTK, bảng màu Qt cho qt5ct/qt6ct |
+| `delta` | Màu diff cho git delta, cần include trong `~/.gitconfig` (xem Lưu ý) |
 | `sddm` | Theme SDDM, **không** stow; cài bằng `sddm/install.sh` |
 
 ## Lưu ý
+
+- **Theme Tokyo Night.** Phần lớn file màu lấy từ `extras/` của plugin `folke/tokyonight.nvim`
+  (foot, tmux, fzf, bat, delta, eza, lazygit, yazi, btop, zathura). Các file còn lại (sway, waybar, rofi,
+  mako, swaylock, imv, zsh-syntax-highlighting, Qt) viết tay theo cùng bảng màu.
+- **git delta:** `.gitconfig` không nằm trong repo (có tên/email), nên thêm tay:
+  `git config --global include.path ~/.config/delta/tokyonight_night.gitconfig`.
+- **Ngoài repo:** VS Code dùng extension `enkia.tokyo-night`.
+- **Theme GTK Tokyonight-Dark** (bản `black`, repo Fausto-Korpsvart/Tokyonight-GTK-Theme) không nằm trong repo.
+  Cần `sassc` và `gtk-murrine-engine`, rồi dựng và liên kết cho libadwaita:
+  `./themes/install.sh -c dark -n Tokyonight --tweaks black -l -d ~/.themes`
+  Màu nhấn đổi sang `#7aa2f7`: sửa `$accent-dark` trong `themes/src/sass/_color-palette-default.scss` trước khi dựng.
+  (`-l` tạo symlink `~/.config/gtk-4.0/{gtk.css,gtk-dark.css,assets}`).
+  `gtk/.config/environment.d/theme.conf` đặt `GTK_THEME=Tokyonight-Dark`; biến này ghi đè gsettings,
+  nên khi đổi theme GTK phải sửa cả ở đây rồi đăng nhập lại.
+- **foot dùng nền đặc** (`alpha=1.0`): nền trong suốt làm foot tắt khử răng cưa subpixel, chữ mờ hơn trên màn mật độ thấp.
 
 - **zsh và fcitx5 dùng `--no-folding`.** Nếu không, stow có thể symlink cả `~/.oh-my-zsh` hoặc `~/.local`
   vào repo, và oh-my-zsh, plugin zsh hay file trong `~/.local/bin` sẽ bị ghi vào cây repo.

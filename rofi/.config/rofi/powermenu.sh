@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Rofi power menu (Catppuccin theme comes from config.rasi)
+# Rofi power menu (Tokyo Night theme comes from config.rasi)
 
 lock=$'  Lock'
 logout=$'  Logout'

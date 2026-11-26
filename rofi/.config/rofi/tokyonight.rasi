@@ -1,12 +1,12 @@
-/* Catppuccin Mocha */
+/* Tokyo Night (night) */
 * {
-    bg:       #1e1e2e;
-    bg-alt:   #313244;
-    fg:       #cdd6f4;
-    fg-dim:   #a6adc8;
-    accent:   #b4befe;
-    urgent:   #f38ba8;
-    active:   #a6e3a1;
+    bg:       #1a1b26;
+    bg-alt:   #292e42;
+    fg:       #c0caf5;
+    fg-dim:   #a9b1d6;
+    accent:   #7aa2f7;
+    urgent:   #f7768e;
+    active:   #9ece6a;
 
     background-color: transparent;
     text-color:       @fg;
@@ -21,7 +21,7 @@ window {
     background-color: @bg;
     border:           2px;
     border-color:     @accent;
-    border-radius:    12px;
+    border-radius:    6px;
 }
 
 mainbox {
@@ -32,7 +32,7 @@ mainbox {
 
 inputbar {
     background-color: @bg-alt;
-    border-radius:    8px;
+    border-radius:    4px;
     padding:          8px 12px;
     spacing:          8px;
     children:         [ prompt, entry ];
@@ -49,7 +49,7 @@ entry {
 
 message {
     background-color: @bg-alt;
-    border-radius:    8px;
+    border-radius:    4px;
     padding:          8px 12px;
 }
 
@@ -63,7 +63,7 @@ listview {
 
 element {
     padding:       8px 12px;
-    border-radius: 8px;
+    border-radius: 4px;
 }
 
 element-text {
