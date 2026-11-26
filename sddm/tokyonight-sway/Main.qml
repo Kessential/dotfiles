@@ -110,7 +110,7 @@ Rectangle {
             height: Math.max(320, mainColumn.implicitHeight + 50)
 
             color: "#e61a1b26"
-            radius: 14
+            radius: 6
             border.width: 2
             border.color: "#7aa2f7"
 
@@ -150,7 +150,7 @@ Rectangle {
                         focusColor: "#7aa2f7"
                         hoverColor: "#7aa2f7"
                         textColor: "#c0caf5"
-                        radius: 8
+                        radius: 4
                         width: parent.width; height: 30
                         text: userModel.lastUser
                         font.pixelSize: 14
@@ -185,7 +185,7 @@ Rectangle {
                         focusColor: "#7aa2f7"
                         hoverColor: "#7aa2f7"
                         textColor: "#c0caf5"
-                        radius: 8
+                        radius: 4
                         width: parent.width; height: 30
                         font.pixelSize: 14
 
@@ -302,7 +302,7 @@ Rectangle {
                         textColor: "#1a1b26"
                         activeColor: "#bb9af7"
                         pressedColor: "#7aa2f7"
-                        radius: 8
+                        radius: 4
                         text: textConstants.login
                         width: parent.btnWidth
 
@@ -317,7 +317,7 @@ Rectangle {
                         textColor: "#c0caf5"
                         activeColor: "#3b4261"
                         pressedColor: "#414868"
-                        radius: 8
+                        radius: 4
                         text: textConstants.shutdown
                         width: parent.btnWidth
 
@@ -332,7 +332,7 @@ Rectangle {
                         textColor: "#c0caf5"
                         activeColor: "#3b4261"
                         pressedColor: "#414868"
-                        radius: 8
+                        radius: 4
                         text: textConstants.reboot
                         width: parent.btnWidth
 

@@ -74,7 +74,7 @@ plugins=(eza foot zoxide zsh-autosuggestions zsh-syntax-highlighting)
 
 # Tokyo Night: phải đặt trước khi plugin syntax-highlighting được nạp
 source $ZSH/custom/tokyonight_night-zsh-syntax-highlighting.zsh
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6c7086"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#565f89"
 
 source $ZSH/oh-my-zsh.sh
 

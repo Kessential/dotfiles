@@ -1,7 +1,7 @@
 # mako config
 # Palette: Tokyo Night (night), matching rofi and swaylock.
 
-font=Noto Sans Mono 11
+font=JetBrainsMono Nerd Font 10
 sort=-time
 max-history=100
 default-timeout=6000
@@ -15,7 +15,7 @@ height=110
 padding=12
 margin=10
 border-size=2
-border-radius=10
+border-radius=6
 
 background-color=#1a1b26F2
 text-color=#c0caf5FF

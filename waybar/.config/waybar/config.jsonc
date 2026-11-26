@@ -95,7 +95,7 @@
         "calendar": {
             "mode": "month",
             "format": {
-                "today": "<span background='#f38ba8' color='#1e1e2e'><b>{}</b></span>"
+                "today": "<span background='#7aa2f7' color='#16161e'><b>{}</b></span>"
             }
         }
     },
