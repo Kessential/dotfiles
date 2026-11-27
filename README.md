@@ -15,7 +15,7 @@ mkdir -p ~/.config ~/.local/share ~/.local/bin   # tạo trước để stow kh�
 
 # zsh và fcitx5 phải dùng --no-folding (xem "Lưu ý" bên dưới)
 stow --no-folding zsh fcitx5
-stow bat btop delta eza foot gtk imv lazygit mako nvim qt ripgrep rofi \
+stow bat btop delta eza fontconfig foot gtk imv lazygit mako nvim qt ripgrep rofi \
      sway swaylock tmux waybar yazi zathura
 
 ./bootstrap.sh                        # sau khi đã stow
@@ -37,6 +37,7 @@ hãy chuyển file cũ đi (`mv`) rồi stow lại. Xem trước bằng `stow -n
 | `nvim` | Neovim dựa trên kickstart.nvim, tuỳ chỉnh thêm trong `lua/custom/plugins/` |
 | `bat`, `btop`, `eza`, `lazygit`, `yazi`, `ripgrep`, `zathura`, `imv` | Công cụ dòng lệnh và trình xem |
 | `fcitx5`, `gtk`, `qt` | Bộ gõ, GTK, bảng màu Qt cho qt5ct/qt6ct |
+| `fontconfig` | Đặt `monospace`/`mono` = JetBrainsMono Nerd Font Mono cho toàn hệ thống |
 | `delta` | Màu diff cho git delta, cần include trong `~/.gitconfig` (xem Lưu ý) |
 | `sddm` | Theme SDDM, **không** stow; cài bằng `sddm/install.sh` |
 
@@ -55,6 +56,9 @@ hãy chuyển file cũ đi (`mv`) rồi stow lại. Xem trước bằng `stow -n
   (`-l` tạo symlink `~/.config/gtk-4.0/{gtk.css,gtk-dark.css,assets}`).
   `gtk/.config/environment.d/theme.conf` đặt `GTK_THEME=Tokyonight-Dark`; biến này ghi đè gsettings,
   nên khi đổi theme GTK phải sửa cả ở đây rồi đăng nhập lại.
+- **Font:** mọi chỗ dùng font mono (foot, waybar, rofi, mako, sway, swaylock, SDDM, zathura, Qt fixed) là JetBrainsMono Nerd Font;
+  font giao diện GTK/Qt/fcitx5 là Adwaita Sans 11. `gsettings` font mono được đặt tay:
+  `gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font Mono 11'`.
 - **foot dùng nền đặc** (`alpha=1.0`): nền trong suốt làm foot tắt khử răng cưa subpixel, chữ mờ hơn trên màn mật độ thấp.
 
 - **zsh và fcitx5 dùng `--no-folding`.** Nếu không, stow có thể symlink cả `~/.oh-my-zsh` hoặc `~/.local`

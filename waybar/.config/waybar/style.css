@@ -20,8 +20,8 @@
 
 /* Thanh nổi: cách mép (margin trong config.jsonc), bo góc nhẹ, hơi trong suốt */
 window#waybar {
-    background-color: rgba(22, 22, 30, 0.85);
-    border: 1px solid rgba(59, 66, 97, 0.6);
+    background-color: rgba(36, 40, 59, 0.65);
+    border: 1px solid rgba(59, 66, 97, 0.3);
     border-radius: 5px;
     color: #a9b1d6;
 }
@@ -66,7 +66,7 @@ button:hover {
 
 /* Vạch ngăn mảnh giữa các module bên phải */
 .modules-right > widget > * {
-    border-left: 1px solid rgba(59, 66, 97, 0.5);
+    border-left: 1px solid rgba(59, 66, 97, 0.25);
 }
 
 .modules-right > widget:first-child > * {
@@ -79,11 +79,11 @@ button:hover {
 }
 
 #workspaces button {
-    padding: 0 9px;
+    padding: 0 10px;
     min-width: 0;
     margin: 0;
     background-color: transparent;
-    color: #565f89;
+    color: #737aa2;
     font-weight: 700;
     border-bottom: 2px solid transparent;
 }
@@ -125,8 +125,7 @@ button:hover {
 
 /* Tên cửa sổ đang mở */
 #window {
-    color: #737aa2;
-    font-style: italic;
+    color: #a9b1d6;
 }
 
 window#waybar.empty #window {

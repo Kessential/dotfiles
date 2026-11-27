@@ -16,7 +16,8 @@ install -d /etc/sddm-backup
 [ -f /etc/sddm.conf.d/local.conf ] && cp -n /etc/sddm.conf.d/local.conf /etc/sddm-backup/local.conf.bak-before-tokyonight || true
 # Dọn các bản sao lưu cũ lỡ để trong sddm.conf.d
 for f in /etc/sddm.conf.d/*.bak-*; do [ -e "$f" ] && mv -f "$f" /etc/sddm-backup/; done
-printf '[Theme]\nCurrent=tokyonight-sway\n' > /etc/sddm.conf.d/local.conf
+# Font=: font chung cho mọi chữ không đặt font riêng trong Main.qml (phải là font cài cho toàn hệ thống)
+printf '[Theme]\nCurrent=tokyonight-sway\nFont=Adwaita Sans,11\n' > /etc/sddm.conf.d/local.conf
 # Gỡ theme Catppuccin cũ nếu còn
 rm -rf /usr/share/sddm/themes/catppuccin-sway
 echo "Đã cài theme tokyonight-sway."

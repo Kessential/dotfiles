@@ -1,7 +1,7 @@
 # swaylock config
 # Palette: Tokyo Night (night) (matches rofi and mako)
 
-font=Noto Sans Mono
+font=JetBrainsMono Nerd Font
 font-size=24
 
 # Same wallpaper swaybg uses on the desktop; both link libglycin for

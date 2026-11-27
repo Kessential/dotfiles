@@ -90,7 +90,7 @@ Rectangle {
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
                 color: "#c0caf5"
-                font.family: "Noto Sans Mono"
+                font.family: "JetBrainsMono Nerd Font"
                 font.pointSize: 72
                 text: Qt.formatTime(clock.dateTime, "hh:mm")
             }
@@ -139,7 +139,7 @@ Rectangle {
                         color: "#a9b1d6"
                         width: parent.width
                         text: textConstants.userName
-                        font.bold: true
+                        font.weight: Font.Medium
                         font.pixelSize: 12
                     }
 
@@ -174,7 +174,7 @@ Rectangle {
                         color: "#a9b1d6"
                         width: parent.width
                         text: textConstants.password
-                        font.bold: true
+                        font.weight: Font.Medium
                         font.pixelSize: 12
                     }
 
@@ -217,7 +217,7 @@ Rectangle {
                             width: parent.width
                             text: textConstants.session
                             wrapMode: TextEdit.WordWrap
-                            font.bold: true
+                            font.weight: Font.Medium
                             font.pixelSize: 12
                         }
 
@@ -256,7 +256,7 @@ Rectangle {
                             width: parent.width
                             text: textConstants.layout
                             wrapMode: TextEdit.WordWrap
-                            font.bold: true
+                            font.weight: Font.Medium
                             font.pixelSize: 12
                         }
 
@@ -304,6 +304,7 @@ Rectangle {
                         pressedColor: "#7aa2f7"
                         radius: 4
                         text: textConstants.login
+                        font.weight: Font.Medium
                         width: parent.btnWidth
 
                         onClicked: sddm.login(name.text, password.text, sessionIndex)
@@ -319,6 +320,7 @@ Rectangle {
                         pressedColor: "#414868"
                         radius: 4
                         text: textConstants.shutdown
+                        font.weight: Font.Medium
                         width: parent.btnWidth
 
                         onClicked: sddm.powerOff()
@@ -334,6 +336,7 @@ Rectangle {
                         pressedColor: "#414868"
                         radius: 4
                         text: textConstants.reboot
+                        font.weight: Font.Medium
                         width: parent.btnWidth
 
                         onClicked: sddm.reboot()

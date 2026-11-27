@@ -1,2 +1,5 @@
 include tokyonight-night
 set selection-clipboard clipboard
+
+# Font đồng bộ với foot
+set font "JetBrainsMono Nerd Font 10"
